@@ -5,7 +5,7 @@
 
 //using dev-C++
 
-double *answer; //0-площадь поверхности, 1- объем
+double answer[2]; //0-площадь поверхности, 1- объем
 
 double VectorMagnitude (double v[3])
 {
@@ -33,9 +33,7 @@ void GetSquareAndVolume (double *v1, double *v2,double *v3,double *answer) {
 	double back1[3],back2[3];
 	back1[0]=v1[0]-v2[0]; back1[1]=v1[1]-v2[1];back1[2]=v1[2]-v2[2];
 	back2[0]=v2[0]-v3[0];back2[1]=v2[1]-v3[0];back2[2]=v2[2]-v3[2];
-	answer=malloc(2*sizeof(double));
 	answer[0] = TriangleSquare (v1,v2)+TriangleSquare (v2,v3)+TriangleSquare(v1,v3)+TriangleSquare(back1,back2);
-	printf("%lf",answer[0]);
 	answer[1]= 1.0/6.0*(v1[0]*(v2[1]*v3[2]-v2[2]*v3[1])+v1[1]*(v2[2]*v3[0]-v3[2]*v2[0])+v1[2]*(v2[0]*v3[1]-v2[1]*v3[0]));	
 }
 
@@ -111,7 +109,7 @@ int main(int argc, char *argv[]) {
 	{
 	GetSquareAndVolume(va,vb,vc,answer);
 		printf ("Surface square: %lf",answer[0]);
-		printf ("Volume: %lf",answer[1]);
+		printf ("\n Volume: %lf",answer[1]);
 	}
 	
 	_getch();
