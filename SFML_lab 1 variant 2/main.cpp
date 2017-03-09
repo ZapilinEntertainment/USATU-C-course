@@ -22,12 +22,13 @@
 		Vertex(Vector2f(100,150)),
 		Vertex (Vector2f(300,150))
 	};
-	Vertex upside[4]=
+	Vertex upside[5]=
 	{
 		Vertex (Vector2f(0,0)),
 		Vertex (Vector2f(200,0)),
 		Vertex (Vector2f(300,50)),
 		Vertex (Vector2f(100,50)),
+		Vertex(Vector2f(0,0))
 	};
 	Vertex edge1[2]= 
 	{
@@ -105,6 +106,7 @@ int main()
 					plgramms[i].upside[1].position=plgramms[i].upside[0].position+Vector2f(plgramms[i].width,0);
 					plgramms[i].upside[2].position=plgramms[i].upside[1].position+Vector2f(plgramms[i].length*cos(VIEW_ANGLE/180*M_PI), plgramms[i].length*sin(VIEW_ANGLE/180*M_PI));
 					plgramms[i].upside[3].position=plgramms[i].upside[2].position-Vector2f(plgramms[i].width,0);
+					plgramms[i].upside[4].position=plgramms[i].upside[0].position;
 					
 					plgramms[i].edge1[0].position=plgramms[i].upside[0].position;//три боковые грани
 					plgramms[i].edge1[1].position=plgramms[i].edge1[0].position+Vector2f(0,plgramms[i].height);
@@ -120,7 +122,7 @@ int main()
 					plgramms[i].bottomSide[2].position=plgramms[i].edge3[1].position;
         			
         			
-        			window.draw(plgramms[i].upside,4,LinesStrip);
+        			window.draw(plgramms[i].upside,5,LinesStrip);
 					window.draw(plgramms[i].edge1,2,Lines);
 					window.draw(plgramms[i].edge2,2,Lines);
 					window.draw(plgramms[i].edge3,2,Lines);
