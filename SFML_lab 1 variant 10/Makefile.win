@@ -1,0 +1,28 @@
+# Project: SfmlProject
+# Makefile created by Dev-C++ 5.11
+
+CPP      = g++.exe
+CC       = gcc.exe
+WINDRES  = windres.exe
+OBJ      = main.o
+LINKOBJ  = main.o
+LIBS     = -L"E:/Programs/Dev-Cpp/MinGW64/lib" -L"E:/Programs/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib" -L"E:/Programs/SFML/lib" -static-libgcc E:/Programs/SFML/lib/libFLAC.a E:/Programs/SFML/lib/libfreetype.a E:/Programs/SFML/lib/libjpeg.a E:/Programs/SFML/lib/libogg.a E:/Programs/SFML/lib/libopenal32.a E:/Programs/SFML/lib/libsfml-audio.a E:/Programs/SFML/lib/libsfml-audio-d.a E:/Programs/SFML/lib/libsfml-audio-s.a E:/Programs/SFML/lib/libsfml-audio-s-d.a E:/Programs/SFML/lib/libsfml-graphics.a E:/Programs/SFML/lib/libsfml-graphics-d.a E:/Programs/SFML/lib/libsfml-graphics-s.a E:/Programs/SFML/lib/libsfml-graphics-s-d.a E:/Programs/SFML/lib/libsfml-main.a E:/Programs/SFML/lib/libsfml-main-d.a E:/Programs/SFML/lib/libsfml-network.a E:/Programs/SFML/lib/libsfml-network-d.a E:/Programs/SFML/lib/libsfml-network-s.a E:/Programs/SFML/lib/libsfml-network-s-d.a E:/Programs/SFML/lib/libsfml-system.a E:/Programs/SFML/lib/libsfml-system-d.a E:/Programs/SFML/lib/libsfml-system-s.a E:/Programs/SFML/lib/libsfml-system-s-d.a E:/Programs/SFML/lib/libsfml-window.a E:/Programs/SFML/lib/libsfml-window-d.a E:/Programs/SFML/lib/libsfml-window-s.a E:/Programs/SFML/lib/libsfml-window-s-d.a E:/Programs/SFML/lib/libvorbis.a E:/Programs/SFML/lib/libvorbisenc.a E:/Programs/SFML/lib/libvorbisfile.a
+INCS     = -I"E:/Programs/Dev-Cpp/MinGW64/include" -I"E:/Programs/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"E:/Programs/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include" -I"E:/Programs/SFML/lib"
+CXXINCS  = -I"E:/Programs/Dev-Cpp/MinGW64/include" -I"E:/Programs/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"E:/Programs/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include" -I"E:/Programs/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include/c++" -I"E:/Programs/SFML/include" -I"E:/Programs/SFML/lib"
+BIN      = SfmlProject.exe
+CXXFLAGS = $(CXXINCS) 
+CFLAGS   = $(INCS) 
+RM       = rm.exe -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CPP) $(LINKOBJ) -o $(BIN) $(LIBS)
+
+main.o: main.cpp
+	$(CPP) -c main.cpp -o main.o $(CXXFLAGS)
