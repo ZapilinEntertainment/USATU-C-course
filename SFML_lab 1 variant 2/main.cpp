@@ -64,6 +64,7 @@ int main()
 	}
 	
 	Plgramm *plgramms = new Plgramm[count];
+	srand ( time(NULL) );
 	for (int i = 0; i<count; i++)
 	{
 		plgramms[i].width=rand()/((float)RAND_MAX)*(MAX_WIDTH-MIN_WIDTH)+MIN_WIDTH;
@@ -93,15 +94,19 @@ int main()
         for (int i=0;i<count;i++)
         {
         	float newHeight=plgramms[i].height;
-        	if (newHeight!=0)
+        	if (newHeight>0)
         	{
         		newHeight-=DISAPPEARING_SPEED;
-        		if (newHeight<0) newHeight=0;
+        		if (newHeight<0) 
+				{
+					newHeight=0;
+					plgramms[i].height=0;
+					disappeared++;
+				}
         		else
         		{
 				    plgramms[i].ypos+=(plgramms[i].height-newHeight)/2;
 					plgramms[i].height=newHeight;
-				
 					plgramms[i].upside[0].position=Vector2f(plgramms[i].xpos,plgramms[i].ypos); //верхн€€ крышка, вершины сверху вниз по часовой стрелке
 					plgramms[i].upside[1].position=plgramms[i].upside[0].position+Vector2f(plgramms[i].width,0);
 					plgramms[i].upside[2].position=plgramms[i].upside[1].position+Vector2f(plgramms[i].length*cos(VIEW_ANGLE/180*M_PI), plgramms[i].length*sin(VIEW_ANGLE/180*M_PI));
@@ -129,10 +134,17 @@ int main()
 					window.draw(plgramms[i].bottomSide,3,LinesStrip);
 				}
 			}
-			else disappeared++;
+			else 
+			{
+			disappeared++;
+			}
 		}
-		if (disappeared==count) printf ("all rects disappeared");
+		 
         window.display();
+        if (disappeared==count)		{
+			printf ("all rects disappeared");
+			window.close();
+		}
        
     }
     
