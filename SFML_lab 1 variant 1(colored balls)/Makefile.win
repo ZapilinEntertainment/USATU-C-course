@@ -1,0 +1,28 @@
+# Project: SfmlProject
+# Makefile created by Dev-C++ 5.11
+
+CPP      = g++.exe
+CC       = gcc.exe
+WINDRES  = windres.exe
+OBJ      = main.o
+LINKOBJ  = main.o
+LIBS     = -L"E:/Programs/Dev-Cpp/MinGW64/lib" -L"E:/Programs/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib" -L"E:/Programs/SFML/lib" -static-libgcc ../../Programs/SFML/lib/libFLAC.a ../../Programs/SFML/lib/libfreetype.a ../../Programs/SFML/lib/libjpeg.a ../../Programs/SFML/lib/libogg.a ../../Programs/SFML/lib/libopenal32.a ../../Programs/SFML/lib/libsfml-audio.a ../../Programs/SFML/lib/libsfml-audio-d.a ../../Programs/SFML/lib/libsfml-audio-s.a ../../Programs/SFML/lib/libsfml-audio-s-d.a ../../Programs/SFML/lib/libsfml-graphics.a ../../Programs/SFML/lib/libsfml-graphics-d.a ../../Programs/SFML/lib/libsfml-graphics-s.a ../../Programs/SFML/lib/libsfml-graphics-s-d.a ../../Programs/SFML/lib/libsfml-main.a ../../Programs/SFML/lib/libsfml-main-d.a ../../Programs/SFML/lib/libsfml-network.a ../../Programs/SFML/lib/libsfml-network-d.a ../../Programs/SFML/lib/libsfml-network-s.a ../../Programs/SFML/lib/libsfml-network-s-d.a ../../Programs/SFML/lib/libsfml-system.a ../../Programs/SFML/lib/libsfml-system-d.a ../../Programs/SFML/lib/libsfml-system-s.a ../../Programs/SFML/lib/libsfml-system-s-d.a ../../Programs/SFML/lib/libsfml-window.a ../../Programs/SFML/lib/libsfml-window-d.a ../../Programs/SFML/lib/libsfml-window-s.a ../../Programs/SFML/lib/libsfml-window-s-d.a ../../Programs/SFML/lib/libvorbis.a ../../Programs/SFML/lib/libvorbisenc.a ../../Programs/SFML/lib/libvorbisfile.a
+INCS     = -I"E:/Programs/Dev-Cpp/MinGW64/include" -I"E:/Programs/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"E:/Programs/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include" -I"E:/Programs/SFML/lib"
+CXXINCS  = -I"E:/Programs/Dev-Cpp/MinGW64/include" -I"E:/Programs/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"E:/Programs/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include" -I"E:/Programs/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include/c++" -I"E:/Programs/SFML/include" -I"E:/Programs/SFML/lib"
+BIN      = SfmlProject.exe
+CXXFLAGS = $(CXXINCS) 
+CFLAGS   = $(INCS) 
+RM       = rm.exe -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CPP) $(LINKOBJ) -o $(BIN) $(LIBS)
+
+main.o: main.cpp
+	$(CPP) -c main.cpp -o main.o $(CXXFLAGS)
